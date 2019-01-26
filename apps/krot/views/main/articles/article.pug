@@ -1,0 +1,39 @@
+extends ../layout
+
+block header_meta
+	- var content_title= 'КРОТ | ' + article.title
+	- var content_description = article.intro.replace(/<(?:.|\n)*?>/gm, '')
+	- var content_images = [article.cover || '/stuff/' + __app_name + '/icons/logo/krot_main.png']
+
+block header_include
+	- var include_css = ['article.css']
+	- var include_js = ['article.js']
+
+block params
+	- var sg_article = article._id
+
+block logo
+	img(class=article.cover && 'cover', src=article.cover || '/stuff/' + __app_name + '/icons/logo/krot_main.png')
+
+block content
+	.bookmark
+
+	.article_header
+		a.header_back(href='/'): img(src='/stuff/' + __app_name + '/icons/logo/krot_mono_invert.png')
+		.article_categorys
+			each category in article.categorys
+				a.category_item(class=category.status == 'hidden' ? 'hidden' : '', href='#' + category._short_id)!= category.title
+
+	.article_body
+		.article_files
+			each file, i in article.files || []
+				a.file_item(href=file.path, target='_blank')= file.desc ? '< ' + file.desc + ' >' : '< File ' + (i+1) + ' >'
+		.article_intro!= article.intro
+		.article_description!= article.description
+
+	.article_summary
+		each item in summary
+			a.summary_item(class=item.hover && 'change', class=item.status == 'hidden' ? 'hidden' : '', href='/articles/' + (item.sym || item._short_id))
+				img.s_item_base(src=item.base)
+				if item.hover
+					img.s_item_hover(src=item.hover)

@@ -1,0 +1,33 @@
+@media screen and (max-width: 980px)
+	@import 'mobile/_issues.styl'
+
+.issues_block
+	margin-top 20px
+	overflow hidden
+	.issues_inner
+		overflow hidden
+		margin-top -40px
+		margin-left -20px
+		.issue_item
+			width 306px
+			height 200px
+			border 8px solid black
+			float left
+			margin-left 20px
+			margin-top 40px
+			box-sizing border-box
+			padding 10px
+			display block
+			text-decoration none
+			position relative
+			&.hidden
+				opacity 0.5
+			&:hover
+				color rgb(255, 237, 52)
+				border-color rgb(255, 237, 52)
+			.issue_numb
+				font-size 34pt
+			.issue_theme
+				font-size 24pt
+				position absolute
+				bottom 10px

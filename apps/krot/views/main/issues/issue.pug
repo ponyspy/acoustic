@@ -1,0 +1,37 @@
+extends ../layout
+
+block header_meta
+	- var content_title= 'КРОТ | №' + issue.numb
+	- var content_description = issue.description.replace(/<(?:.|\n)*?>/gm, '')
+	- var content_images = [issue.background]
+
+block header_include
+	- var include_libs_css = ['swiper.min.css']
+	- var include_css = ['issue.css']
+	- var include_libs_js = ['swiper.jquery.min.js']
+	- var include_js = ['issue.js']
+
+block params
+	- var parse = function(prefix, style) { return Object.keys(style).map(function(name) { return prefix + name + ':' + style[name] + ';'; }).join(''); };
+	- var bg_image = issue.background ? 'background-image: url(' + issue.background + ');' + parse('background-', issue.style.background.toObject()) : ''
+	- var sg_issue = issue._id
+
+block logo
+	img(src=issue.logo || '/stuff/' + __app_name + '/icons/logo/krot_main.png')
+
+block content
+	.issue_columns.swiper-container
+		.slide_button.left
+		.slide_button.right
+		.swiper-wrapper
+			each column in issue.columns
+				.column_item.swiper-slide(class=column.main ? 'main' : '')
+					each article in column.articles
+						.article_item(class=article.status == 'hidden' ? 'hidden' : '')
+							a.article_cover(class=article.hover && 'change', href='/articles/' + (article.sym || article._short_id))
+								img.cover_base(src=article.base)
+								if article.hover
+									img.cover_hover(src=article.hover)
+							.article_categorys
+								each category in article.categorys
+									a.category_item(class=category.status == 'hidden' ? 'hidden' : '', href='#' + category._short_id)!= category.title.replace(' ', '<br>')

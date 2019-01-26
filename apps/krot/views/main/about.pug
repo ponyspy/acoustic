@@ -1,0 +1,14 @@
+extends layout
+
+block header_meta
+	- var content_title= 'КРОТ | О нас'
+
+block header_include
+	- var include_css = ['about.css']
+
+block logo
+	img(src='/stuff/' + __app_name + '/icons/logo/krot_main.png')
+
+block content
+	img.banner(src='/stuff/' + __app_name + '/backgrounds/about.jpg')
+	.description!= html
