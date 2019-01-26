@@ -1,8 +1,8 @@
 {
 	"apps": [
 		{
-			"name": "krot",
-			"script": "./apps/krot/app.js",
+			"name": "acoustic",
+			"script": "./apps/acoustic/app.js",
 			"exec_mode": "fork",
 			"autorestart": true,
 			"min_uptime": "300s",

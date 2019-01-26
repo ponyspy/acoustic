@@ -3,22 +3,14 @@ html
 	block params
 	head
 		include header
-	body(style=bg_image)
-		if (session && session.user_id)
-			include stargazer
-
+	body
 		.outer_block
-			.logo_block
-				block logo
+			.header_block
+				span header
 
 			.content_block
 				block content
 
 			.footer_block
-				a.footer_logo(href='/'): img(src='/stuff/' + __app_name + '/icons/logo/krot_mono.png')
-				.footer_links
-					a(href='/issues') Архив
-					a(href='/about') О нас
-					a.mail(href='mailto:krot@krot.me') krot@krot.me
-				a.footer_back(href='/issues') Крот выпуски
+				span footer
 		include counters.pug

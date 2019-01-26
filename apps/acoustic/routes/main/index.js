@@ -1,13 +1,18 @@
 module.exports = function(Model) {
 	var module = {};
 
-	var Issue = Model.Issue;
+	var Event = Model.Event;
+	var News = Model.News;
 
 	module.index = function(req, res, next) {
-		Issue.findOne().where('status').ne('hidden').sort('-date').exec(function(err, issue) {
-			if (!issue) return next(err);
+		Event.find().where('status').ne('hidden').sort('-date').exec(function(err, events) {
+			if (!events) return next(err);
 
-			res.redirect('/issues/' + issue.numb || issue._short_id);
+			News.find().where('status').ne('hidden').sort('-date').exec(function(err, news) {
+				if (!events) return next(err);
+
+				res.render('main/index.pug', { events: events, news: news });
+			});
 		});
 	};
 

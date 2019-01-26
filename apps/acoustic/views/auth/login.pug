@@ -7,7 +7,6 @@ block header_include
 	- var include_css = ['add.css', 'login.css']
 
 block content
-	img.logo(src='/stuff/' + __app_name + '/icons/logo/krot_w.svg')
 	.form_login
 		.title= content_title
 		form(action='/auth/login', method='post')
