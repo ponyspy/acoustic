@@ -26,10 +26,18 @@ block content
 			+form_text_single('title', event)
 			.form_title Синоним адреса:
 			+form_text_single('sym', event)(placeholder=event._short_id)
-			.form_title Обложка:
-			+form_single_file('cover', event)(accept='image/jpeg,image/png,image/svg+xml,image/gif')
 			.form_title Описание:
 			+form_text_multi('description', event)
+			.form_title Описание (дополнительное):
+			+form_text_multi('description_alt', event)
+			.form_title Фото (коментарий):
+			+form_text_single('photo_desc', event)
+			.form_title Фото:
+			+form_single_file('photo', event)(accept='image/jpeg,image/png,image/svg+xm,image/gif')
+			.form_title Обложка:
+			+form_single_file('cover', event)(accept='image/jpeg,image/png,image/svg+xm,image/gif')
+			.form_title YouTube / Vimeo / Soundcloud:
+			input(type='text', name='embed')
 			.form_title Статус:
 			select(name='status')
 				option(value='base') Обычный

@@ -26,6 +26,13 @@ var eventSchema = new Schema({
 	title: { type: String, trim: true },
 	description: { type: String, trim: true },
 	cover: String,
+	photo: String,
+	photo_desc: { type: String, trim: true },
+	description_alt: { type: String, trim: true },
+	embed: {
+		provider: String,
+		id: String
+	},
 	status: String,	// hidden
 	_short_id: { type: String, unique: true, index: true, sparse: true },
 	sym: { type: String, trim: true, index: true, unique: true },

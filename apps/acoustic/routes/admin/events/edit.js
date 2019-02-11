@@ -6,9 +6,10 @@ module.exports = function(Model, Params) {
 
 	var Event = Model.Event;
 
-	var uploadImagesContentPreview = Params.upload.image_content_preview;
-	var uploadImagesContent = Params.upload.image_content;
 	var uploadImage = Params.upload.image;
+	var youtubeId = Params.helpers.youtubeId;
+	var vimeoId = Params.helpers.vimeoId;
+	var soundcloudId = Params.helpers.soundcloudId;
 
 
 	module.index = function(req, res, next) {
@@ -17,11 +18,7 @@ module.exports = function(Model, Params) {
 		Event.findById(id).exec(function(err, event) {
 			if (err) return next(err);
 
-			uploadImagesContentPreview(event, function(err, event) {
-				if (err) return next(err);
-
-				res.render('admin/events/edit.pug', { event: event });
-			});
+			res.render('admin/events/edit.pug', { event: event });
 		});
 	};
 
@@ -40,10 +37,31 @@ module.exports = function(Model, Params) {
 			event.numb = post.numb;
 			event.sym = post.sym ? post.sym : undefined;
 			event.description = post.description;
+			event.description_alt = post.description_alt;
+			event.photo_desc = post.photo_desc;
+
+			if (youtubeId(post.embed)) {
+				event.embed = {
+					provider: 'youtube',
+					id: youtubeId(post.embed)
+				}
+			} else if (vimeoId(post.embed)) {
+				event.embed = {
+					provider: 'vimeo',
+					id: vimeoId(post.embed)
+				}
+			} else if (soundcloudId(post.embed)) {
+				event.embed = {
+					provider: 'soundcloud',
+					id: soundcloudId(post.embed)
+				}
+			} else {
+				event.embed = undefined;
+			}
 
 			async.series([
 				async.apply(uploadImage, event, 'events', 'cover', 800, files.cover && files.cover[0], post.cover_del),
-				async.apply(uploadImagesContent, event, post, 'events'),
+				async.apply(uploadImage, event, 'events', 'photo', 800, files.photo && files.photo[0], post.photo_del),
 			], function(err, results) {
 				if (err) return next(err);
 

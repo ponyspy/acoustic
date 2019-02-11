@@ -3,7 +3,8 @@ var express = require('express');
 var Model = require(__glob_root + '/models/main.js');
 
 var Params = {
-	upload: require('../_params/upload')
+	upload: require('../_params/upload'),
+	helpers: require('../_params/helpers')
 };
 
 var events = {
