@@ -6,6 +6,8 @@ module.exports = function(Model, Params) {
 
 	var Event = Model.Event;
 
+	var uploadImagesContent = Params.upload.image_content;
+	var uploadImagesContentPreview = Params.upload.image_content_preview;
 	var uploadImage = Params.upload.image;
 	var youtubeId = Params.helpers.youtubeId;
 	var vimeoId = Params.helpers.vimeoId;
