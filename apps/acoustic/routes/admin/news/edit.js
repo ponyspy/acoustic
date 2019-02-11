@@ -4,7 +4,7 @@ var async = require('async');
 module.exports = function(Model, Params) {
 	var module = {};
 
-	var Event = Model.Event;
+	var News = Model.News;
 
 	var uploadImagesContentPreview = Params.upload.image_content_preview;
 	var uploadImagesContent = Params.upload.image_content;
@@ -14,7 +14,7 @@ module.exports = function(Model, Params) {
 	module.index = function(req, res, next) {
 		var id = req.params.news_id;
 
-		Event.findById(id).exec(function(err, news) {
+		News.findById(id).exec(function(err, news) {
 			if (err) return next(err);
 
 			uploadImagesContentPreview(news, function(err, news) {
@@ -31,7 +31,7 @@ module.exports = function(Model, Params) {
 		var files = req.files;
 		var id = req.params.news_id;
 
-		Event.findById(id).exec(function(err, news) {
+		News.findById(id).exec(function(err, news) {
 			if (err) return next(err);
 
 			news.status = post.status;
