@@ -1,0 +1,23 @@
+extends layout
+
+block header_meta
+	- var content_title= 'КОНТАКТЫ'
+
+block header_include
+	- var include_libs_css = ['font-awesome.css', 'wysiwyg-editor.min.css']
+	- var include_css = ['add.css']
+	- var include_libs_js = ['wysiwyg.min.js', 'wysiwyg-editor.min.js']
+	- var include_js = ['editor.js', 'add.js']
+
+block sub_menu
+	a.sub_item.back_link(href='/admin') Назад
+
+block content
+	.form_block
+		.title= content_title
+		form(action='', method='post')
+			.form_title Текст:
+			textarea.input.editor(name='content')= content
+			br
+			br
+			input(type='submit', style='display: block; clear: both;' value='сохранить')

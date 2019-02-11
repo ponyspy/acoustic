@@ -8,6 +8,7 @@ var admin = {
 	events: require('./events/_events.js'),
 	news: require('./news/_news.js'),
 	about: require('./about.js'),
+	contacts: require('./contacts.js'),
 	users: require('./users/_users.js'),
 	options: require('./options.js')
 };
@@ -26,6 +27,10 @@ module.exports = (function() {
 	router.route('/about')
 		.get(checkAuth, admin.about.edit)
 		.post(checkAuth, admin.about.edit_form);
+
+	router.route('/contacts')
+		.get(checkAuth, admin.contacts.edit)
+		.post(checkAuth, admin.contacts.edit_form);
 
 	router.use('/events', checkAuth, upload.fields([ { name: 'cover' } ]), admin.events);
 	router.use('/news', checkAuth, upload.fields([ { name: 'cover' } ]), admin.news);
