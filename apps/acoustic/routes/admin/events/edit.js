@@ -18,7 +18,11 @@ module.exports = function(Model, Params) {
 		Event.findById(id).exec(function(err, event) {
 			if (err) return next(err);
 
-			res.render('admin/events/edit.pug', { event: event });
+			uploadImagesContentPreview(event, function(err, event) {
+				if (err) return next(err);
+
+				res.render('admin/events/edit.pug', { event: event });
+			});
 		});
 	};
 
@@ -36,9 +40,8 @@ module.exports = function(Model, Params) {
 			event.title = post.title;
 			event.numb = post.numb;
 			event.sym = post.sym ? post.sym : undefined;
+			event.intro = post.intro;
 			event.description = post.description;
-			event.description_alt = post.description_alt;
-			event.photo_desc = post.photo_desc;
 
 			if (youtubeId(post.embed)) {
 				event.embed = {
@@ -61,7 +64,7 @@ module.exports = function(Model, Params) {
 
 			async.series([
 				async.apply(uploadImage, event, 'events', 'cover', 800, files.cover && files.cover[0], post.cover_del),
-				async.apply(uploadImage, event, 'events', 'photo', 800, files.photo && files.photo[0], post.photo_del),
+				async.apply(uploadImagesContent, event, post, 'events'),
 			], function(err, results) {
 				if (err) return next(err);
 

@@ -24,11 +24,9 @@ var userSchema = new Schema({
 var eventSchema = new Schema({
 	numb: { type: Number, index: true, unique: true },
 	title: { type: String, trim: true },
+	intro: { type: String, trim: true },
 	description: { type: String, trim: true },
 	cover: String,
-	photo: String,
-	photo_desc: { type: String, trim: true },
-	description_alt: { type: String, trim: true },
 	embed: {
 		provider: String,
 		id: String
@@ -41,6 +39,7 @@ var eventSchema = new Schema({
 
 var newsSchema = new Schema({
 	title: { type: String, trim: true },
+	intro: { type: String, trim: true },
 	description: { type: String, trim: true },
 	cover: String,
 	status: String,	// hidden

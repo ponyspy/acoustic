@@ -7,6 +7,7 @@ module.exports = function(Model, Params) {
 
 	var Event = Model.Event;
 
+	var uploadImagesContent = Params.upload.image_content;
 	var uploadImage = Params.upload.image;
 	var youtubeId = Params.helpers.youtubeId;
 	var vimeoId = Params.helpers.vimeoId;
@@ -30,9 +31,8 @@ module.exports = function(Model, Params) {
 		event.title = post.title;
 		event.sym = post.sym ? post.sym : undefined;
 		event.numb = post.numb;
+		event.intro = post.intro;
 		event.description = post.description;
-		event.description_alt = post.description_alt;
-		event.photo_desc = post.photo_desc;
 
 		if (youtubeId(post.embed)) {
 			event.embed = {
@@ -55,7 +55,7 @@ module.exports = function(Model, Params) {
 
 		async.series([
 			async.apply(uploadImage, event, 'events', 'cover', 800, files.cover && files.cover[0], null),
-			async.apply(uploadImage, event, 'events', 'photo', 800, files.photo && files.photo[0], null),
+			async.apply(uploadImagesContent, event, post, 'events'),
 		], function(err, results) {
 			if (err) return next(err);
 

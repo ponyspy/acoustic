@@ -26,14 +26,10 @@ block content
 			+form_text_single('title')
 			.form_title Синоним адреса:
 			+form_text_single('sym')
+			.form_title Вступление:
+			+form_text_multi('intro')
 			.form_title Описание:
 			+form_text_multi('description')
-			.form_title Описание (дополнительное):
-			+form_text_multi('description_alt')
-			.form_title Фото (коментарий):
-			+form_text_single('photo_desc')
-			.form_title Фото:
-			+form_single_file('photo')(accept='image/jpeg,image/png,image/svg+xm,image/gif')
 			.form_title Обложка:
 			+form_single_file('cover')(accept='image/jpeg,image/png,image/svg+xm,image/gif')
 			.form_title YouTube / Vimeo / Soundcloud:
