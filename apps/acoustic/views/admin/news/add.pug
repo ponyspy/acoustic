@@ -30,6 +30,8 @@ block content
 			+form_text_multi('description')
 			.form_title Обложка:
 			+form_single_file('cover')(accept='image/jpeg,image/png,image/svg+xm,image/gif')
+			.form_title YouTube / Vimeo / SoundCloud:
+			input(type='text', name='embed')
 			.form_title Статус:
 			select(name='status')
 				option(value='base') Обычный

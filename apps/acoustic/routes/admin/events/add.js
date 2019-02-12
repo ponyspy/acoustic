@@ -33,6 +33,7 @@ module.exports = function(Model, Params) {
 		event.numb = post.numb;
 		event.intro = post.intro;
 		event.description = post.description;
+		event.type = post.type;
 
 		if (youtubeId(post.embed)) {
 			event.embed = {

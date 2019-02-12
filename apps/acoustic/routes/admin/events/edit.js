@@ -44,6 +44,7 @@ module.exports = function(Model, Params) {
 			event.sym = post.sym ? post.sym : undefined;
 			event.intro = post.intro;
 			event.description = post.description;
+			event.type = post.type;
 
 			if (youtubeId(post.embed)) {
 				event.embed = {

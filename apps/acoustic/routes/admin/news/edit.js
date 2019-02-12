@@ -9,6 +9,9 @@ module.exports = function(Model, Params) {
 	var uploadImagesContentPreview = Params.upload.image_content_preview;
 	var uploadImagesContent = Params.upload.image_content;
 	var uploadImage = Params.upload.image;
+	var youtubeId = Params.helpers.youtubeId;
+	var vimeoId = Params.helpers.vimeoId;
+	var soundcloudId = Params.helpers.soundcloudId;
 
 
 	module.index = function(req, res, next) {
@@ -40,6 +43,25 @@ module.exports = function(Model, Params) {
 			news.sym = post.sym ? post.sym : undefined;
 			news.intro = post.intro;
 			news.description = post.description;
+
+			if (youtubeId(post.embed)) {
+				news.embed = {
+					provider: 'youtube',
+					id: youtubeId(post.embed)
+				}
+			} else if (vimeoId(post.embed)) {
+				news.embed = {
+					provider: 'vimeo',
+					id: vimeoId(post.embed)
+				}
+			} else if (soundcloudId(post.embed)) {
+				news.embed = {
+					provider: 'soundcloud',
+					id: soundcloudId(post.embed)
+				}
+			} else {
+				news.embed = undefined;
+			}
 
 			async.series([
 				async.apply(uploadImage, news, 'news', 'cover', 800, files.cover && files.cover[0], post.cover_del),

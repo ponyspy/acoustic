@@ -30,6 +30,16 @@ block content
 			+form_text_multi('description', news)
 			.form_title Обложка:
 			+form_single_file('cover', news)(accept='image/jpeg,image/png,image/svg+xm,image/gif')
+			.form_title YouTube / Vimeo / SoundCloud:
+			if (news.embed && news.embed.provider)
+				if (news.embed.provider == 'youtube')
+					input(type='text', name='embed', value='https://youtu.be/' + news.embed.id)
+				else if (news.embed.provider == 'vimeo')
+					input(type='text', name='embed', value='https://vimeo.com/' + news.embed.id)
+				else if (news.embed.provider == 'soundcloud')
+					input(type='text', name='embed', value='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + news.embed.id)
+			else
+				input(type='text', name='embed')
 			.form_title Статус:
 			select(name='status')
 				option(value='base') Обычный

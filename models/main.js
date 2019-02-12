@@ -27,6 +27,7 @@ var eventSchema = new Schema({
 	intro: { type: String, trim: true },
 	description: { type: String, trim: true },
 	cover: String,
+	type: String,
 	embed: {
 		provider: String,
 		id: String
@@ -42,6 +43,10 @@ var newsSchema = new Schema({
 	intro: { type: String, trim: true },
 	description: { type: String, trim: true },
 	cover: String,
+	embed: {
+		provider: String,
+		id: String
+	},
 	status: String,	// hidden
 	_short_id: { type: String, unique: true, index: true, sparse: true },
 	sym: { type: String, trim: true, index: true, unique: true },
