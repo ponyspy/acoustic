@@ -1,11 +1,18 @@
 extends layout
 
 block header_meta
-	- var content_title= 'Acoustic'
+	- var content_title= 'acoustic treatment'
+	- var menu_active = 'live'
 
 block header_include
 	- var include_css = ['main.css']
 	- var include_js = ['main.js']
 
 block content
-	h1 hello!
+	.panel_block.left: .panel_inner
+		each item, i in new Array(20)
+			.live_item
+				.item_num= i
+				.item_title= 'item title' + i
+
+	.panel_block.right: .panel_inner right

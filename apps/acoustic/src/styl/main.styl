@@ -1,3 +1,28 @@
 @media screen and (max-width: 980px)
 	@import 'mobile/_main.styl'
 
+.content_block
+	margin-top 20px
+
+.panel_block
+	width 50%
+	&.left
+		float left
+		background-color red
+		.panel_inner
+			font-size 0
+	&.right
+		float right
+		background-color green
+
+.live_item
+	width 33.333333333%
+	padding-right 20px
+	box-sizing border-box
+	display inline-block
+	vertical-align top
+	margin-bottom 40px
+	.item_num
+		font 22pt/28pt 'Arial'
+	.item_title
+		font 22pt/28pt 'Arial'
