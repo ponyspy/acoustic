@@ -3,10 +3,10 @@ var express = require('express');
 var Model = require(__glob_root + '/models/main.js');
 
 var main = {
-	index: require('./index.js')(Model),
+	index: require('./index.js'),
+	news: require('./news.js')(Model),
+	live: require('./live.js')(Model),
 	content: require('./content.js'),
-	// issues: require('./issues/_issues.js'),
-	// articles: require('./articles/_articles.js'),
 	options: require('./options.js')(Model)
 };
 
@@ -16,9 +16,14 @@ module.exports = (function() {
 	router.route('/')
 		.get(main.index.index);
 
-	// router.use('/issues', main.issues);
+	router.route('/live')
+		.get(main.live.index);
 
-	// router.use('/articles', main.articles);
+	router.route('/news')
+		.get(main.news.index);
+
+	router.route('/contacts')
+		.get(main.content.contacts);
 
 	router.route('/about')
 		.get(main.content.about);

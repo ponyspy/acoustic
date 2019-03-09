@@ -1,0 +1,13 @@
+extends layout
+
+block header_meta
+	- var content_title= 'acoustic treatment | contacts'
+	- var menu_active = 'contacts'
+
+block header_include
+	- var include_css = ['contacts.css']
+	- var include_js = ['contacts.js']
+
+block content
+	.panel_block.left: .panel_inner left
+	.panel_block.right: .panel_inner right
