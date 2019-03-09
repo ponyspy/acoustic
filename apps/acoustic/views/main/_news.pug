@@ -1,5 +1,13 @@
 .content_news
-	img.news_cover(src=news.cover)
+	if (news.embed && news.embed.provider)
+		if (news.embed.provider == 'youtube')
+			.news_embed: iframe.embed(src='https://www.youtube.com/embed/' + news.embed.id, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen='')
+		else if (news.embed.provider == 'vimeo')
+			.news_embed: iframe.embed(src='https://player.vimeo.com/video/' + news.embed.id, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen='')
+		else if (news.embed.provider == 'soundcloud')
+			.news_embed: iframe.embed(src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + news.embed.id, frameborder='0', allow='autoplay; encrypted-media', allowfullscreen='')
+	else
+		img.news_cover(src=news.cover)
 	.news_date= moment(news.date).locale('ru').format('DD.MM.YY')
 	.news_title= news.title
 	.news_intro!= news.intro
