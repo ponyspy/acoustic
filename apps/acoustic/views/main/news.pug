@@ -13,6 +13,6 @@ block content
 		each n_item in news
 			a.news_item(href='#' + n_item._short_id)
 				.news_date= moment(n_item.date).locale('ru').format('DD.MM.YY')
-				.news_title= n_item.title
+				.news_title: span= n_item.title
 
 	.panel_block.right: .panel_inner
