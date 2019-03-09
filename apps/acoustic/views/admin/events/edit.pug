@@ -24,13 +24,8 @@ block content
 			input(type='number', name='numb', min='1', value=event.numb)
 			.form_title Название:
 			+form_text_single('title', event)
-			.form_title Синоним адреса:
-			+form_text_single('sym', event)(placeholder=event._short_id)
-			.form_title Тип:
-			select(name='type')
-				option(value='live', selected= event.type == 'live' && 'live') live
-				option(value='dj', selected= event.type == 'dj' && 'dj') dj
-				option(value='podcast', selected= event.type == 'podcast' && 'podcast') podcast
+			.form_title Название (курсив):
+			+form_text_single('title_alt', event)
 			.form_title Вступление:
 			+form_text_multi('intro', event)
 			.form_title Описание:

@@ -40,7 +40,6 @@ module.exports = function(Model, Params) {
 			news.status = post.status;
 			news.date = moment(post.date.date + 'T' + post.date.time.hours + ':' + post.date.time.minutes);
 			news.title = post.title;
-			news.sym = post.sym ? post.sym : undefined;
 			news.intro = post.intro;
 			news.description = post.description;
 
