@@ -6,11 +6,23 @@ html
 	body
 		.outer_block
 			.header_block
-				span header
+				.search_block search
+				a.logo_block(href='/'): img(src='/stuff/acoustic/icons/logo.png')
+				.menu_block
+					a(href='/live') live
+					a(href='/news') news
+					a(href='/merch') merch
+					a(href='/about') about
+
 
 			.content_block
 				block content
 
+
 			.footer_block
-				span footer
+				.subscribe_block subscribe
+				.down_block
+					a(href='/contacts') contacts
+
+
 		include counters.pug

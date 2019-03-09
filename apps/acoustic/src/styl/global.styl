@@ -6,6 +6,38 @@
 body
 	margin 0
 	padding 0
+	background-color black
+	color white
 
 a
-	color black
+	color white
+
+
+.header_block
+	display flex
+	justify-content space-between
+	align-items center
+	padding-left 40px
+	padding-right 40px
+	box-sizing border-box
+	.search_block
+		font 22pt/24pt 'Arial'
+		flex 2
+	.logo_block
+		flex 2
+		margin-left 40px
+		margin-right 40px
+		img
+			width 300px
+			display block
+	.menu_block
+		flex 1
+		font 22pt/24pt 'Arial'
+		a
+			margin-right 10px
+			text-decoration none
+			&:last-child
+				margin-right 0
+			&:hover
+			&.active
+				text-decoration underline
