@@ -13,6 +13,9 @@ block content
 		each item, i in new Array(20)
 			.live_item
 				.item_num= i
-				.item_title= 'item title' + i
+				.item_title
+					span.title_main= 'item ' + i
+					span= ' '
+					span.title_alt= 'alt title'
 
 	.panel_block.right: .panel_inner right
