@@ -17,21 +17,62 @@ a
 	display flex
 	justify-content space-between
 	align-items center
-	padding-left 40px
-	padding-right 40px
+	padding-left 20px
+	padding-right 20px
 	box-sizing border-box
 	.search_block
+		-webkit-appearance: none;
+		border-radius 0
+		padding 0
+		display inline-block
+		border none
+		outline none
+		background-color black
+		color white
 		font 22pt/24pt 'Arial'
 		flex 2
 	.logo_block
 		flex 2
-		margin-left 40px
-		margin-right 40px
+		margin-left 20px
+		margin-right 20px
 		img
 			width 300px
 			display block
 	.menu_block
-		flex 1
+		flex 0.5
+		font 22pt/24pt 'Arial'
+		a
+			margin-right 10px
+			text-decoration none
+			&:last-child
+				margin-right 0
+			&:hover
+			&.active
+				text-decoration underline
+
+
+.content_block
+	padding-left 20px
+	padding-right 20px
+	box-sizing border-box
+
+
+.footer_block
+	padding-left 20px
+	padding-right 20px
+	box-sizing border-box
+	.subscribe_block
+		-webkit-appearance: none;
+		border-radius 0
+		padding 0
+		display inline-block
+		border none
+		outline none
+		background-color black
+		color white
+		font 22pt/24pt 'Arial'
+	.down_block
+		float right
 		font 22pt/24pt 'Arial'
 		a
 			margin-right 10px
