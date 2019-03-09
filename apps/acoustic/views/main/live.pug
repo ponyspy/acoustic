@@ -10,12 +10,12 @@ block header_include
 
 block content
 	.panel_block.left: .panel_inner
-		each item, i in new Array(60)
+		each event in events
 			.live_item
-				.item_num= i
+				.item_num= event.numb
 				.item_title
-					span.title_main= 'item ' + i
-					span= ' '
-					span.title_alt= 'alt title'
+					span.title_main= event.title
+					//- span= ' '
+					//- span.title_alt= 'alt title'
 
 	.panel_block.right: .panel_inner right

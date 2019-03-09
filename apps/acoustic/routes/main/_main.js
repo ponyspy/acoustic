@@ -17,10 +17,12 @@ module.exports = (function() {
 		.get(main.index.index);
 
 	router.route('/live')
-		.get(main.live.index);
+		.get(main.live.index)
+		.post(main.live.get_event);
 
 	router.route('/news')
-		.get(main.news.index);
+		.get(main.news.index)
+		.post(main.news.get_news);
 
 	router.route('/contacts')
 		.get(main.content.contacts);

@@ -1,0 +1,5 @@
+img.news_cover(src=news.cover)
+.news_date= moment(news.date).locale('ru').format('DD.MM.YY')
+.news_title= news.title
+.news_intro!= news.intro
+.news_description!= news.description

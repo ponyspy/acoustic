@@ -1,0 +1,5 @@
+img.event_cover(src=event.cover)
+.event_date= moment(event.date).locale('ru').format('DD.MM.YY')
+.event_title= event.title
+.event_intro!= event.intro
+.event_description!= event.description
