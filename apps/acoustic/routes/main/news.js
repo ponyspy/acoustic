@@ -12,7 +12,7 @@ module.exports = function(Model) {
 		News.find().where('status').ne('hidden').sort('-date').exec(function(err, news) {
 			if (!news) return next(err);
 
-			res.render('main/news.pug', { news: news });
+			res.render('main/news.pug', { moment: moment, news: news });
 		});
 	};
 
