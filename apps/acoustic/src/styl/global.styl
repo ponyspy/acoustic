@@ -24,6 +24,7 @@ a
 	box-sizing border-box
 	background-color black
 	top 0
+	z-index 9999
 	.search_block
 		-webkit-appearance: none;
 		border-radius 0
@@ -59,11 +60,20 @@ a
 
 
 .content_block
-	padding-left 20px
-	padding-right 20px
-	box-sizing border-box
-	margin-top 100px
-	margin-bottom 200px
+	.panel_block
+		width 50%
+		height 100%
+		position absolute
+		overflow scroll
+		padding-top 100px
+		padding-bottom 200px
+		box-sizing border-box
+		padding-left 20px
+		padding-right 20px
+		&.left
+			left 0
+		&.right
+			right 0
 
 
 .footer_block
