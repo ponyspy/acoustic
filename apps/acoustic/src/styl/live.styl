@@ -13,19 +13,25 @@
 	display inline-block
 	vertical-align top
 	margin-bottom 40px
-	cursor pointer
 	text-decoration none
-	&:hover .event_title span
-		border-bottom 2px solid white
+	&.hidden
+		display none
 	.event_num
 		font 22pt/28pt 'Arial'
 	.event_title
 		font 22pt/28pt 'Arial'
-		display inline-block
-		.title_alt
-			font-style italic
+		border-bottom 2px solid transparent
+		text-decoration none
+		&:hover
+			border-bottom 2px solid white
+	.event_type
+		font 22pt/28pt 'Arial'
+		font-style italic
 		span
+			cursor pointer
 			border-bottom 2px solid transparent
+			&:hover
+				border-bottom 2px dotted white
 
 
 .content_event

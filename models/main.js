@@ -5,7 +5,10 @@ var Schema = mongoose.Schema,
 		ObjectId = Schema.ObjectId;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/' +  __app_name, { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/' +  __app_name, {
+	useCreateIndex: true,
+	useNewUrlParser: true
+});
 
 
 // ------------------------
@@ -24,7 +27,6 @@ var userSchema = new Schema({
 var eventSchema = new Schema({
 	numb: { type: Number, index: true, unique: true },
 	title: { type: String, trim: true },
-	title_alt: { type: String, trim: true },
 	intro: { type: String, trim: true },
 	description: { type: String, trim: true },
 	cover: String,
@@ -32,6 +34,7 @@ var eventSchema = new Schema({
 		provider: String,
 		id: String
 	},
+	type: String,
 	status: String,	// hidden
 	_short_id: { type: String, unique: true, index: true, sparse: true },
 	date: { type: Date, default: Date.now, index: true },

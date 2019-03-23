@@ -24,8 +24,6 @@ block content
 			input(type='number', name='numb', min='1')
 			.form_title Название:
 			+form_text_single('title')
-			.form_title Название (курсив):
-			+form_text_single('title_alt')
 			.form_title Вступление:
 			+form_text_multi('intro')
 			.form_title Описание:
@@ -34,6 +32,11 @@ block content
 			+form_single_file('cover')(accept='image/jpeg,image/png,image/svg+xm,image/gif')
 			.form_title YouTube / Vimeo / SoundCloud:
 			input(type='text', name='embed')
+			.form_title Тип:
+			select(name='type')
+				option(value='live') live
+				option(value='dj') dj
+				option(value='podcast') podcast
 			.form_title Статус:
 			select(name='status')
 				option(value='base') Обычный

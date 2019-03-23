@@ -29,7 +29,6 @@ module.exports = function(Model, Params) {
 		event.status = post.status;
 		event.date = moment(post.date.date + 'T' + post.date.time.hours + ':' + post.date.time.minutes);
 		event.title = post.title;
-		event.title_alt = post.title_alt;
 		event.numb = post.numb;
 		event.intro = post.intro;
 		event.description = post.description;

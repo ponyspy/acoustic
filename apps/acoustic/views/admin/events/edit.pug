@@ -42,6 +42,11 @@ block content
 					input(type='text', name='embed', value='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' + event.embed.id)
 			else
 				input(type='text', name='embed')
+			.form_title Тип:
+			select(name='type')
+				option(value='live', selected= event.type == 'live' && 'live') live
+				option(value='dj', selected= event.type == 'dj' && 'dj') dj
+				option(value='podcast', selected= event.type == 'podcast' && 'podcast') podcast
 			.form_title Статус:
 			select(name='status')
 				option(value='base') Обычный

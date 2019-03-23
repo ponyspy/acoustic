@@ -11,11 +11,9 @@ block header_include
 block content
 	.panel_block.left: .panel_inner
 		each event in events
-			a.live_event(href='#' + event._short_id)
+			.live_event
 				.event_num= event.numb
-				.event_title
-					span.title_main= event.title
-					span= ' '
-					span.title_alt= event.title_alt
+				a.event_title(href='#' + event._short_id)= event.title
+				.event_type(class=event.type): span= event.type
 
 	.panel_block.right: .panel_inner
