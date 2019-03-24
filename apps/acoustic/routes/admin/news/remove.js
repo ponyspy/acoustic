@@ -4,7 +4,7 @@ var async = require('async');
 module.exports = function(Model) {
 	var module = {};
 
-	var Event = Model.Event;
+	var News = Model.News;
 
 
 	module.index = function(req, res, next) {
@@ -12,7 +12,7 @@ module.exports = function(Model) {
 
 		async.parallel([
 			function(callback) {
-				Event.findByIdAndRemove(id).exec(callback);
+				News.findByIdAndRemove(id).exec(callback);
 			},
 			function(callback) {
 				rimraf(__glob_root + '/public/cdn/' + __app_name + '/images/news/' + id, { glob: false }, callback);
