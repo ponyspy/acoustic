@@ -9,15 +9,13 @@ $(window).on('load hashchange', function(e) {
 $(function() {
 	$('.event_type').children('span').on('click', function(e) {
 		var $this = $(this).parent();
-		var type = $this.attr('class').split(' ')[1];
+		var type = $this.closest('.live_event').attr('class').split(' ')[1];
 
 		if ($this.hasClass('active')) {
 			$('.live_event').removeClass('hidden');
 			$('.event_type').removeClass('active');
 		} else {
-			$this.addClass('active');
-			$('.live_event').addClass('hidden');
-			$('.live_event').find('.' + type).closest('.live_event').removeClass('hidden');
+			$('.live_event').addClass('hidden').filter('.' + type).removeClass('hidden').find('.event_type').addClass('active');
 		}
 	});
 });
