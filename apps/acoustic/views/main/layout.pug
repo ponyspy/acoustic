@@ -5,8 +5,9 @@ html
 		include header
 	body
 		.outer_block
+			.search_block
 			.header_block
-				input.search_block(type='text', placeholder='search')
+				input.search_input(type='text', placeholder='search')
 				a.logo_block(href='/'): img(src='/stuff/acoustic/icons/logo.svg')
 				.menu_block
 					a(href='/live', class=menu_active == 'live' ? 'active' : '') live
@@ -14,10 +15,8 @@ html
 					a.disabled(href='/merch', class=menu_active == 'merch' ? 'active' : '') merch
 					a(href='/about', class=menu_active == 'about' ? 'active' : '') about
 
-
 			.content_block
 				block content
-
 
 			.footer_block
 				input.subscribe_block(type='text', placeholder='subscribe ↵')

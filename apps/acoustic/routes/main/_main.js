@@ -30,5 +30,8 @@ module.exports = (function() {
 	router.route('/about')
 		.get(main.content.about);
 
+	router.route('/search')
+		.post(main.options.search);
+
 	return router;
 })();

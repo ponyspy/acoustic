@@ -1,15 +1,20 @@
 module.exports = function(Model) {
 	var module = {};
 
-	var Link = Model.Link;
+	var Event = Model.Event;
+	var News = Model.News;
 
-	module.link = function(req, res, next) {
-		var name = req.params.name;
+	module.search = function(req, res, next) {
+		Event.find({ $text: { $search: req.body.text } }).where('status').ne('hidden').exec(function(err, events) {
+			News.find({ $text: { $search: req.body.text } }).where('status').ne('hidden').exec(function(err, news) {
+				var opts = {
+					events: events,
+					news: news,
+					compileDebug: false, debug: false, cache: false, pretty: false
+				};
 
-		Link.findOne({ '$or': [ { title: name }, { __short_id: name } ] }).where('status').ne('hidden').exec(function(err, link) {
-			if (!link) return next(err);
-
-			res.redirect(link.url);
+				res.send(pug.renderFile(__app_root + '/views/main/_search.pug', opts));
+			});
 		});
 	};
 
