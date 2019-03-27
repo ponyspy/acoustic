@@ -9,7 +9,7 @@ $(function() {
 		},
 		getResult: function (result) {
 			$.post('/search', { text: result }).done(function(data) {
-				$('.search_block').empty().append(data);
+				$('.search_block').addClass('show').empty().append(data);
 			});
 		}
 	};

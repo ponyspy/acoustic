@@ -1,29 +1,11 @@
+@import '_mixins.styl'
+
 @media screen and (max-width: 980px)
 	@import 'mobile/_news.styl'
 
 
 .news_item
-	padding-right 20px
-	box-sizing border-box
-	margin-bottom 40px
-	cursor pointer
-	text-decoration none
-	display block
-	opacity .6
-	&:hover
-		opacity 1
-	&:hover .news_title span
-		border-bottom 2px solid white
-	.news_date
-		font 12pt/14pt 'Arial'
-	.news_title
-		margin-top 15px
-		text-indent 40px
-		font 22pt/28pt 'Arial'
-		display inline-block
-		span
-			border-bottom 2px solid transparent
-
+	news-item()
 
 .content_news
 	.news_embed

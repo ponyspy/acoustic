@@ -1,0 +1,53 @@
+live-item()
+	width 33.333333333%
+	padding-right 40px
+	box-sizing border-box
+	display inline-block
+	vertical-align top
+	margin-bottom 40px
+	text-decoration none
+	opacity .6
+	&:hover
+		opacity 1
+	&.hidden
+		display none
+	.event_num
+		font 22pt/28pt 'Arial'
+	.event_title
+		font 22pt/28pt 'Arial'
+		border-bottom 2px solid transparent
+		text-decoration none
+		&:hover
+			border-bottom 2px solid white
+	.event_type
+		font 22pt/28pt 'Arial'
+		font-style italic
+		&.active span
+			border-bottom 2px dotted white
+		span
+			cursor pointer
+			border-bottom 2px solid transparent
+			&:hover
+				border-bottom 2px dotted white
+
+news-item()
+	padding-right 20px
+	box-sizing border-box
+	margin-bottom 40px
+	cursor pointer
+	text-decoration none
+	display block
+	opacity .6
+	&:hover
+		opacity 1
+	&:hover .news_title span
+		border-bottom 2px solid white
+	.news_date
+		font 12pt/14pt 'Arial'
+	.news_title
+		margin-top 15px
+		text-indent 40px
+		font 22pt/28pt 'Arial'
+		display inline-block
+		span
+			border-bottom 2px solid transparent

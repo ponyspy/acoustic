@@ -1,3 +1,6 @@
+var pug = require('pug');
+var moment = require('moment');
+
 module.exports = function(Model) {
 	var module = {};
 
@@ -6,10 +9,13 @@ module.exports = function(Model) {
 
 	module.search = function(req, res, next) {
 		Event.find({ $text: { $search: req.body.text } }).where('status').ne('hidden').exec(function(err, events) {
+
 			News.find({ $text: { $search: req.body.text } }).where('status').ne('hidden').exec(function(err, news) {
+
 				var opts = {
 					events: events,
 					news: news,
+					moment: moment,
 					compileDebug: false, debug: false, cache: false, pretty: false
 				};
 

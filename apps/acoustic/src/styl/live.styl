@@ -1,42 +1,14 @@
+@import '_mixins.styl'
+
 @media screen and (max-width: 980px)
 	@import 'mobile/_live.styl'
-
 
 .panel_block.left .panel_inner
 	font-size 0
 
 
 .live_event
-	width 33.333333333%
-	padding-right 40px
-	box-sizing border-box
-	display inline-block
-	vertical-align top
-	margin-bottom 40px
-	text-decoration none
-	opacity .6
-	&:hover
-		opacity 1
-	&.hidden
-		display none
-	.event_num
-		font 22pt/28pt 'Arial'
-	.event_title
-		font 22pt/28pt 'Arial'
-		border-bottom 2px solid transparent
-		text-decoration none
-		&:hover
-			border-bottom 2px solid white
-	.event_type
-		font 22pt/28pt 'Arial'
-		font-style italic
-		&.active span
-			border-bottom 2px dotted white
-		span
-			cursor pointer
-			border-bottom 2px solid transparent
-			&:hover
-				border-bottom 2px dotted white
+	live-item()
 
 
 .content_event

@@ -60,12 +60,12 @@ var newsSchema = new Schema({
 // ------------------------
 
 
-eventSchema.index({'title': 'text', 'description': 'text'}, {
-	default_language: 'russian', weights: { title: 2, description: 1 }
+eventSchema.index({'title': 'text', 'intro': 'text', 'description': 'text'}, {
+	default_language: 'russian', weights: { title: 2, intro: 1, description: 1 }
 });
 
-newsSchema.index({'title': 'text', 'description': 'text'}, {
-	default_language: 'russian', weights: { title: 2, description: 1 }
+newsSchema.index({'title': 'text', 'intro': 'text', 'description': 'text'}, {
+	default_language: 'russian', weights: { title: 2, intro: 1, description: 1 }
 });
 
 

@@ -5,7 +5,6 @@ html
 		include header
 	body
 		.outer_block
-			.search_block
 			.header_block
 				input.search_input(type='text', placeholder='search')
 				a.logo_block(href='/'): img(src='/stuff/acoustic/icons/logo.svg')
@@ -17,6 +16,7 @@ html
 
 			.content_block
 				block content
+			.search_block
 
 			.footer_block
 				input.subscribe_block(type='text', placeholder='subscribe ↵')
