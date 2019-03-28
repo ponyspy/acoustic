@@ -37,4 +37,18 @@ $(function() {
 			$('.menu_block').removeClass('hidden');
 		});
 
+	$('.logo_block').on('click', function(e) {
+		if (!/live|news/.test($('.menu_block a.active').text())) return true;
+
+		e.preventDefault();
+
+		if ($('.search_block').hasClass('show')) {
+			$('.search_block').find('.content_results').empty();
+			$('.search_input').val('');
+		} else {
+			$('.content_block').find('.panel_block.right').children('.panel_inner').empty();
+			location.hash = '#';
+		}
+	});
+
 });
