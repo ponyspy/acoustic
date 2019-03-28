@@ -20,12 +20,12 @@ module.exports = function(Model) {
 			if (!event) return next(err);
 
 			var opts = {
-				event: event,
+				content: event,
 				moment: moment,
 				compileDebug: false, debug: false, cache: true, pretty: false
 			};
 
-			res.send(pug.renderFile(__app_root + '/views/main/_event.pug', opts));
+			res.send(pug.renderFile(__app_root + '/views/main/_content.pug', opts));
 		});
 	};
 

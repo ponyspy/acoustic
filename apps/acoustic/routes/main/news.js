@@ -21,12 +21,12 @@ module.exports = function(Model) {
 			if (!news) return next(err);
 
 			var opts = {
-				news: news,
+				content: news,
 				moment: moment,
 				compileDebug: false, debug: false, cache: true, pretty: false
 			};
 
-			res.send(pug.renderFile(__app_root + '/views/main/_news.pug', opts));
+			res.send(pug.renderFile(__app_root + '/views/main/_content.pug', opts));
 		});
 	};
 

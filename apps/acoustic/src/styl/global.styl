@@ -28,6 +28,9 @@ a
 	top 0
 	z-index 9999
 	.search_input
+		&::placeholder
+			opacity 1
+			color: rgb(86, 86, 86)
 		-webkit-appearance: none;
 		border-radius 0
 		padding 0
@@ -53,7 +56,7 @@ a
 			margin-right 10px
 			text-decoration none
 			&.disabled
-				opacity 0.5
+				color rgb(86, 86, 86)
 				pointer-events none
 			&:last-child
 				margin-right 0
@@ -128,6 +131,9 @@ a
 		background-color black
 		color white
 		font 22pt/24pt 'Arial'
+		&::placeholder
+			opacity 1
+			color: rgb(86, 86, 86)
 	.down_block
 		float right
 		font 22pt/24pt 'Arial'
