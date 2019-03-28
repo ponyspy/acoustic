@@ -119,13 +119,6 @@ a
 				float left
 
 
-.result_item
-	&.event
-		event-item()
-	&.news
-		news-item()
-
-
 .search_block
 	position absolute
 	width 100%
@@ -133,6 +126,15 @@ a
 	overflow hidden
 	background-color black
 	display none
+	.context_title
+		font 22pt/24pt 'Arial'
+		color rgb(86, 86, 86)
+		margin-bottom 40px
+	.result_item
+		&.event
+			event-item()
+		&.news
+			news-item()
 	&.show
 		display block
 

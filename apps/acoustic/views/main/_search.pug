@@ -1,12 +1,16 @@
 .panel_block.left: .panel_inner
-	each event in events
-		.result_item.event
-			.event_num= event.numb
-			a.event_title(href='/live/#' + event._short_id)= event.title
-			.event_type: span= event.type
+	.context_title live:
+	.content_results
+		each event in events
+			.result_item.event
+				.event_num= event.numb
+				a.event_title(href='/live/#' + event._short_id)= event.title
+				.event_type: span= event.type
 
 .panel_block.right: .panel_inner
-	each n_item in news
-		.result_item.news
-			.news_date= moment(n_item.date).format('DD.MM.YY')
-			a.news_title(href='/news/#' + n_item._short_id): span= n_item.title
+	.context_title news:
+	.content_results
+		each n_item in news
+			.result_item.news
+				.news_date= moment(n_item.date).format('DD.MM.YY')
+				a.news_title(href='/news/#' + n_item._short_id): span= n_item.title
