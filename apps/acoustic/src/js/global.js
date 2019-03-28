@@ -1,4 +1,5 @@
 $(function() {
+
 	var search = {
 		val: '', buf: '',
 		checkResult: function() {
@@ -9,6 +10,8 @@ $(function() {
 		},
 		getResult: function (result) {
 			$.post('/search', { text: result }).done(function(data) {
+				$('.menu_close').addClass('show');
+				$('.menu_block').addClass('hidden');
 				$('.search_block').addClass('show').empty().append(data);
 			});
 		}
@@ -26,4 +29,12 @@ $(function() {
 		.on('focusout', function(event) {
 			clearInterval(search.interval);
 		});
+
+		$('.menu_close').on('click', function(e) {
+			$('.search_input').val('');
+			$('.menu_close').removeClass('show');
+			$('.search_block').removeClass('show').empty();
+			$('.menu_block').removeClass('hidden');
+		});
+
 });

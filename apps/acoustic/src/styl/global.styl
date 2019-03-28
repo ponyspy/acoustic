@@ -16,9 +16,6 @@ a
 
 
 .header_block
-	display flex
-	justify-content space-between
-	align-items center
 	padding-left 20px
 	padding-right 20px
 	width 100%
@@ -27,42 +24,71 @@ a
 	background-color black
 	top 0
 	z-index 9999
-	.search_input
-		&::placeholder
-			opacity 1
-			color: rgb(86, 86, 86)
-		-webkit-appearance: none;
-		border-radius 0
-		padding 0
-		display inline-block
-		border none
-		outline none
-		background-color transparent
-		color white
-		font 22pt/24pt 'Arial'
-		flex 2
-		min-width 120px
-	.logo_block
-		flex 2
-		margin-left 20px
-		margin-right 20px
-		img
-			width 280px
-			display block
-	.menu_block
-		flex 0.5
-		font 22pt/24pt 'Arial'
-		a
-			margin-right 10px
-			text-decoration none
-			&.disabled
+	.header_main
+		// background-color green
+		display flex
+		justify-content space-between
+		align-items center
+		.search_input
+			&::placeholder
+				opacity 1
 				color rgb(86, 86, 86)
-				pointer-events none
-			&:last-child
-				margin-right 0
-			&:hover
-			&.active
-				border-bottom 2px solid white
+			-webkit-appearance: none;
+			border-radius 0
+			padding 0
+			display inline-block
+			border none
+			outline none
+			background-color transparent
+			color white
+			font 22pt/24pt 'Arial'
+			min-width 120px
+			// flex 2
+		.logo_block
+			// flex 2
+			margin-left 20px
+			margin-right 20px
+			img
+				width 280px
+				display block
+		.menu_spacer
+			// flex 0.7
+			width 280px
+			height 21px
+			// background-color red
+	.header_down
+		.menu_close
+			position absolute
+			top 22px
+			right 20px
+			width 35px
+			height 35px
+			display none
+			background-position center
+			background-repeat no-repeat
+			background-size contain
+			cursor pointer
+			&.show
+				display block
+		.menu_block
+			right 20px
+			position absolute
+			top 22px
+			font 22pt/24pt 'Arial'
+			z-index 99999
+			&.hidden
+				display none
+			a
+				margin-right 10px
+				text-decoration none
+				&.disabled
+					color rgb(86, 86, 86)
+					pointer-events none
+				&:last-child
+					margin-right 0
+				&:hover
+				&.active
+					border-bottom 2px solid white
 
 
 .content_block
@@ -133,7 +159,7 @@ a
 		font 22pt/24pt 'Arial'
 		&::placeholder
 			opacity 1
-			color: rgb(86, 86, 86)
+			color rgb(86, 86, 86)
 	.down_block
 		float right
 		font 22pt/24pt 'Arial'
