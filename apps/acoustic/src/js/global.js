@@ -47,6 +47,7 @@ $(function() {
 			$('.search_input').val('');
 		} else {
 			$('.content_block').find('.panel_block.right').children('.panel_inner').empty();
+			$('title').text($('title').text().split(' / ').slice(0, 2).join(' / '));
 			location.hash = '#';
 		}
 	});
