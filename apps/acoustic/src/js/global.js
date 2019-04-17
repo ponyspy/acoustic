@@ -52,7 +52,7 @@ $(function() {
 		}
 	});
 
-	$(document).on('click', '.event_type span', function(e) {
+	$(document).on('click', '.result_item.event .event_type span', function(e) {
 		var $this = $(this).parent();
 		var type = $this.closest('.result_item.event').attr('class').split(' ')[2];
 
