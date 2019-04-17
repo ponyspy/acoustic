@@ -52,4 +52,16 @@ $(function() {
 		}
 	});
 
+	$(document).on('click', '.event_type span', function(e) {
+		var $this = $(this).parent();
+		var type = $this.closest('.result_item.event').attr('class').split(' ')[2];
+
+		if ($this.hasClass('active')) {
+			$('.result_item.event').removeClass('hidden');
+			$('.result_item.event .event_type').removeClass('active');
+		} else {
+			$('.result_item.event').addClass('hidden').filter('.' + type).removeClass('hidden').find('.event_type').addClass('active');
+		}
+	});
+
 });

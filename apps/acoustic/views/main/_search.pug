@@ -2,7 +2,7 @@
 	.context_title live:
 	.content_results
 		each event in events
-			.result_item.event
+			.result_item.event(class=event.type)
 				.event_num= event.numb
 				a.event_title(href='/live/#' + event._short_id)= event.title
 				.event_type: span= event.type
