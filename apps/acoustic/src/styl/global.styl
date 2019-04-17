@@ -29,6 +29,21 @@ a
 		display flex
 		justify-content space-between
 		align-items center
+		.menu_open
+		.search_logo
+			position absolute
+			top 22px
+			width 35px
+			height 35px
+			background-position center
+			background-repeat no-repeat
+			background-size contain
+			cursor pointer
+			display none
+		.search_logo
+			left 20px
+		.menu_open
+			right 20px
 		.search_input
 			&::placeholder
 				opacity 1
@@ -57,6 +72,7 @@ a
 			height 21px
 			// background-color red
 	.header_down
+		.search_logo
 		.menu_close
 			position absolute
 			top 22px
@@ -76,6 +92,8 @@ a
 			top 22px
 			font 22pt/24pt 'Arial'
 			z-index 99999
+			&.show
+				display block!important
 			&.hidden
 				display none
 			a
@@ -86,8 +104,8 @@ a
 					pointer-events none
 				&:last-child
 					margin-right 0
-				&:hover
-				&.active
+				&:hover span
+				&.active span
 					border-bottom 2px solid white
 
 
@@ -144,6 +162,7 @@ a
 	padding-right 20px
 	box-sizing border-box
 	width 100%
+	z-index 9999999
 	position fixed
 	bottom 0
 	padding-bottom 20px

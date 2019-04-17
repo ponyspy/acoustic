@@ -6,17 +6,21 @@ html
 	body
 		.outer_block
 			.header_block
+
 				.header_main
+					.search_logo(style='background-image: url(/stuff/acoustic/icons/search.svg)')
 					input.search_input(type='text', placeholder='search')
 					a.logo_block(href='/'): img(src='/stuff/acoustic/icons/logo.svg')
 					.menu_spacer
+					.menu_open(style='background-image: url(/stuff/acoustic/icons/burger.svg)')
+
 				.header_down
 					.menu_close(style='background-image: url(/stuff/acoustic/icons/x.svg)')
-					.menu_block
-						a(href='/live', class=menu_active == 'live' ? 'active' : '') live
-						a(href='/news', class=menu_active == 'news' ? 'active' : '') news
-						a.disabled(href='/merch', class=menu_active == 'merch' ? 'active' : '') merch
-						a(href='/about', class=menu_active == 'about' ? 'active' : '') about
+					.menu_block: .menu_inner
+						a(href='/live', class=menu_active == 'live' ? 'active' : ''): span live
+						a(href='/news', class=menu_active == 'news' ? 'active' : ''): span news
+						a.disabled(href='/merch', class=menu_active == 'merch' ? 'active' : ''): span merch
+						a(href='/about', class=menu_active == 'about' ? 'active' : ''): span about
 
 			.content_block
 				block content
