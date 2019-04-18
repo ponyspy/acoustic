@@ -42,6 +42,8 @@ $(function() {
 
 		e.preventDefault();
 
+		$('.panel_block').removeClass('show');
+
 		if ($('.search_block').hasClass('show')) {
 			$('.search_block').find('.content_results').empty();
 			$('.search_input').val('');
