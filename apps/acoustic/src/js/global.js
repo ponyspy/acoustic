@@ -66,7 +66,7 @@ $(function() {
 
 
 	$('.menu_open').on('click', function(e) {
-		$('.menu_block').toggleClass('show');
+		$('.menu_block, .footer_block').toggleClass('show');
 	});
 
 });
