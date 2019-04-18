@@ -32,9 +32,10 @@ $(function() {
 
 		$('.menu_close').on('click', function(e) {
 			$('.search_input').val('');
-			$('.menu_close').removeClass('show');
+			$('.menu_block, .footer_block, .menu_close').removeClass('show');
 			$('.search_block').removeClass('show').empty();
 			$('.menu_block').removeClass('hidden');
+			$('.menu_open').removeClass('hide');
 		});
 
 	$('.logo_block').on('click', function(e) {
@@ -68,7 +69,8 @@ $(function() {
 
 
 	$('.menu_open').on('click', function(e) {
-		$('.menu_block, .footer_block').toggleClass('show');
+		$(this).addClass('hide');
+		$('.menu_block, .footer_block, .menu_close').toggleClass('show');
 	});
 
 });
