@@ -11,6 +11,7 @@ $(function() {
 		getResult: function (result) {
 			$.post('/search', { text: result }).done(function(data) {
 				$('.menu_close').addClass('show');
+				$('.menu_open').addClass('hide');
 				$('.menu_block').addClass('hidden');
 				$('.search_block').addClass('show').empty().append(data);
 			});
@@ -71,6 +72,11 @@ $(function() {
 	$('.menu_open').on('click', function(e) {
 		$(this).addClass('hide');
 		$('.menu_block, .footer_block, .menu_close').toggleClass('show');
+	});
+
+	$('.search_logo').on('click', function(e) {
+		$('.logo_block').toggleClass('hide');
+		$('.search_input').toggleClass('show').focus();
 	});
 
 });
