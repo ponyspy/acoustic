@@ -16,6 +16,16 @@ module.exports = function(Model) {
 		});
 	};
 
+	module.news = function(req, res, next) {
+		News.find().where('status').ne('hidden').sort('-date').exec(function(err, news) {
+			News.findOne({ '_short_id': req.params.id }).where('status').ne('hidden').sort('-date').exec(function(err, n_item) {
+				if (!n_item || !news) return next(err);
+
+				res.render('main/news.pug', { news: news, content: n_item, moment: moment });
+			});
+		});
+	}
+
 	module.get_news = function(req, res, next) {
 		News.findOne({ '_short_id': req.body.id }).where('status').ne('hidden').sort('-date').exec(function(err, news) {
 			if (!news) return next(err);

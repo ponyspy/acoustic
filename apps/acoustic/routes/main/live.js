@@ -1,6 +1,7 @@
 var pug = require('pug');
 var moment = require('moment');
 
+
 module.exports = function(Model) {
 	var module = {};
 
@@ -14,6 +15,16 @@ module.exports = function(Model) {
 			res.render('main/live.pug', { events: events });
 		});
 	};
+
+	module.event = function(req, res, next) {
+		Event.find().where('status').ne('hidden').sort('-date').exec(function(err, events) {
+			Event.findOne({ '_short_id': req.params.id }).where('status').ne('hidden').sort('-date').exec(function(err, event) {
+				if (!event || !events) return next(err);
+
+				res.render('main/live.pug', { events: events, content: event, moment: moment });
+			});
+		});
+	}
 
 	module.get_event = function(req, res, next) {
 		Event.findOne({ '_short_id': req.body.id }).where('status').ne('hidden').sort('-date').exec(function(err, event) {

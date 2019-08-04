@@ -40,7 +40,9 @@ $(function() {
 		});
 
 	$('.logo_block').on('click', function(e) {
-		if (!/live|news/.test($('.menu_block a.active').text())) return true;
+		var state = $('.menu_block a.active').text();
+
+		if (!/live|news/.test(state)) return true;
 
 		e.preventDefault();
 
@@ -52,7 +54,7 @@ $(function() {
 		} else {
 			$('.content_block').find('.panel_block.right').children('.panel_inner').empty();
 			$('title').text($('title').text().split(' / ').slice(0, 2).join(' / '));
-			location.hash = '#';
+			history.pushState(null, null, '/' + state);
 		}
 	});
 

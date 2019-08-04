@@ -1,7 +1,7 @@
 extends layout
 
 block header_meta
-	- var content_title= 'acoustic | treatment / live'
+	- var content_title= 'acoustic | treatment / live' + (content ? ' / ' + content.title : '')
 	- var menu_active = 'live'
 
 block header_include
@@ -13,7 +13,9 @@ block content
 		each event in events
 			.event_item(class=event.type)
 				.event_num= event.numb
-				a.event_title(href='#' + event._short_id)= event.title
+				a.event_title(href='/live/' + event._short_id)= event.title
 				.event_type: span= event.type
 
 	.panel_block.right: .panel_inner
+		if content
+			include _content.pug

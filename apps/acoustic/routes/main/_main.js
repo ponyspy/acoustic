@@ -20,9 +20,15 @@ module.exports = (function() {
 		.get(main.live.index)
 		.post(main.live.get_event);
 
+	router.route('/live/:id')
+		.get(main.live.event)
+
 	router.route('/news')
 		.get(main.news.index)
 		.post(main.news.get_news);
+
+	router.route('/news/:id')
+		.get(main.news.news)
 
 	router.route('/contacts')
 		.get(main.content.contacts);

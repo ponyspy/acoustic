@@ -1,7 +1,7 @@
 extends layout
 
 block header_meta
-	- var content_title= 'acoustic | treatment / news'
+	- var content_title= 'acoustic | treatment / news' + (content ? ' / ' + content.title : '')
 	- var menu_active = 'news'
 
 block header_include
@@ -11,8 +11,10 @@ block header_include
 block content
 	.panel_block.left: .panel_inner
 		each n_item in news
-			a.news_item(href='#' + n_item._short_id)
+			a.news_item(href='/news/' + n_item._short_id)
 				.news_date= moment(n_item.date).format('DD.MM.YY')
 				.news_title: span= n_item.title
 
 	.panel_block.right: .panel_inner
+		if content
+			include _content.pug
