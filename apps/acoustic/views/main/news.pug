@@ -2,8 +2,8 @@ extends layout
 
 block header_meta
 	- var content_title= 'acoustic | treatment / news' + (content ? ' / ' + content.title : '')
-	- var content_description = content.intro
-	- var content_images = content.cover && [content.cover]
+	- var content_description = content && content.intro
+	- var content_images = content && content.cover && [content.cover]
 	- var menu_active = 'news'
 
 block header_include
