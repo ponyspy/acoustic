@@ -11,7 +11,7 @@
 
 
 $(function() {
-	$('a').each(function() {
+	$('.panel_block.right a').each(function() {
 		$(this).attr('target', '_blank');
 	});
 });
