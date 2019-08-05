@@ -50,7 +50,7 @@ $(function() {
 
 		if ($('.search_block').hasClass('show')) {
 			$('.search_block').find('.content_results').empty();
-			$('.search_input').val('');
+			$('.search_input').val('').focus();
 		} else {
 			$('.content_block').find('.panel_block.right').children('.panel_inner').empty();
 			$('title').text($('title').text().split(' / ').slice(0, 2).join(' / '));
