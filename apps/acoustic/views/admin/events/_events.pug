@@ -5,7 +5,7 @@
 			a.item_title(href='/admin/events/edit/' + event._id, class=event.status =='hidden' ? 'hidden': '')= event.title ? event.title : '!!! ПУСТОЕ ПОЛЕ !!!'
 			span.item_preview
 				span= ' --> '
-				a(href='/events/' + (event.sym ? event.sym : event._short_id), target='_blank') превью
+				a(href='/live/' + event._short_id, target='_blank') превью
 
 .list_counter
 	a.list_back(href='#'): b назад
