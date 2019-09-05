@@ -18,6 +18,6 @@ block content
 				a.event_title(href='/live/' + event._short_id)= event.title
 				.event_type: span= event.type
 
-	.panel_block.right: .panel_inner
+	.panel_block.right(class=content ? 'show' : ''): .panel_inner
 		if content
 			include _content.pug

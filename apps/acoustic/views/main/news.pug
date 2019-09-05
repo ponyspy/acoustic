@@ -17,6 +17,6 @@ block content
 				.news_date= moment(n_item.date).format('DD.MM.YY')
 				.news_title: span= n_item.title
 
-	.panel_block.right: .panel_inner
+	.panel_block.right(class=content ? 'show' : ''): .panel_inner
 		if content
 			include _content.pug
