@@ -16,11 +16,11 @@ module.exports = (function() {
 	router.route('/')
 		.get(main.index.index);
 
-	router.route('/brodcast')
+	router.route('/broadcast')
 		.get(main.live.index)
 		.post(main.live.get_event);
 
-	router.route('/brodcast/:id')
+	router.route('/broadcast/:id')
 		.get(main.live.event)
 
 	router.route('/news')

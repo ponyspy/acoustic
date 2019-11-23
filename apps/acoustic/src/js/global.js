@@ -42,7 +42,7 @@ $(function() {
 	$('.logo_block').on('click', function(e) {
 		var state = $('.menu_block a.active').text();
 
-		if (!/brodcast|news/.test(state)) return true;
+		if (!/broadcast|news/.test(state)) return true;
 
 		e.preventDefault();
 

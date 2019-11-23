@@ -4,7 +4,7 @@ $(function() {
 
 		var url = $(this).attr('href');
 
-		$.post('/brodcast', { id: url.split('/').slice(-1).pop() }).done(function(data) {
+		$.post('/broadcast', { id: url.split('/').slice(-1).pop() }).done(function(data) {
 			var $data = $(data);
 
 			$('.menu_close').trigger('click');
