@@ -1,3 +1,3 @@
 exports.index = function(req, res, next) {
-	res.redirect('/live');
+	res.redirect('/brodcast');
 };
