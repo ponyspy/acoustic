@@ -4,7 +4,7 @@
 		each event in events
 			.result_item.event(class=event.type)
 				.event_num= event.numb
-				a.event_title(href='/live/' + event._short_id)= event.title
+				a.event_title(href='/broadcast/' + event._short_id)= event.title
 				.event_type: span= event.type
 
 .panel_block.right: .panel_inner
