@@ -25,7 +25,7 @@ var userSchema = new Schema({
 });
 
 var eventSchema = new Schema({
-	numb: { type: Number, index: true, unique: true },
+	numb: { type: Number, index: true },
 	title: { type: String, trim: true },
 	intro: { type: String, trim: true },
 	description: { type: String, trim: true },
