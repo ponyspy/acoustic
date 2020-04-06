@@ -84,7 +84,7 @@ $(function() {
 	$(document).on('click', '.panel_block.right a', function(e) {
 		e.preventDefault();
 
-		window.open($(this).attr(href), '_blank');
+		window.open($(this).attr('href'), '_blank');
 	});
 
 });
