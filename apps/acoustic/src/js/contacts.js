@@ -10,8 +10,8 @@
 // });
 
 
-// $(function() {
-// 	$('.panel_block.right a').each(function() {
-// 		$(this).attr('target', '_blank');
-// 	});
-// });
+$(function() {
+	$('.panel_block.right a').each(function() {
+		$(this).attr('target', '_blank');
+	});
+});

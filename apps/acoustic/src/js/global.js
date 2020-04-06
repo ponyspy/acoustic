@@ -81,8 +81,4 @@ $(function() {
 		$('.search_input').toggleClass('show').focus();
 	});
 
-	$('.panel_block.right a').each(function() {
-		$(this).attr('target', '_blank');
-	});
-
 });
