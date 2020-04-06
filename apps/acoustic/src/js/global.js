@@ -81,4 +81,10 @@ $(function() {
 		$('.search_input').toggleClass('show').focus();
 	});
 
+	$(document).on('click', '.panel_block.right a', function(e) {
+		e.preventDefault();
+
+		window.open($(this).attr(href), '_blank');
+	});
+
 });
